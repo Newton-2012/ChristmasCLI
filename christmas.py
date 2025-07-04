@@ -29,8 +29,11 @@ for file, freq in notes_freqs.items():
     generate_sine_wave(file, freq)
 
 # 2. Initialize pygame mixer
-pygame.mixer.init()
-pygame.init()
+try:
+    pygame.mixer.init()
+    pygame.init()
+except Exception as e:
+    print(f"Could not initialize mixer: {e}")
 
 # 3. Map MIDI notes to filenames
 notes_files = {
@@ -56,8 +59,8 @@ durations = [
     0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 1.2
 ]
 
-# 5. Play the tune
-print("""
+# 5. Play the tune with raw string for ASCII art
+print(r"""
          |
         -+-
          A
@@ -73,7 +76,7 @@ print("""
   /  O   i   O  \      /_/\_\      \ \ \/ / / \__,_|\____/ |_|
 i/ *   O   O   * \i
 /=================\
-       |___|                                                   
+       |___|
 """)
 
 for note, dur in zip(notes, durations):
