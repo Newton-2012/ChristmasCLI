@@ -104,3 +104,4 @@ for note, dur in zip(notes, durations):
 
 line_break(45)
 print("Merry Christmas (and a happy new year!)")
+line_break(45)
