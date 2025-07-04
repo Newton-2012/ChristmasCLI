@@ -4,6 +4,16 @@ import pygame
 import time
 import os
 
+def line_break(n):
+    print("-" * n)
+
+def fake_loading(text="Loading", dots=9, delay=0.3, done_text="Done!"):
+    print(text, end="", flush=True)
+    for _ in range(dots):
+        print(".", end="", flush=True)
+        time.sleep(delay)
+    print(done_text)
+
 # 1. Generate WAV files if not exist
 def generate_sine_wave(filename, freq, duration=0.5, sample_rate=44100):
     if os.path.exists(filename):
@@ -60,6 +70,10 @@ durations = [
 ]
 
 # 5. Play the tune with raw string for ASCII art
+line_break(45)
+print("Copyright (c) 2025 Newton2012 - MIT License")
+fake_loading("Starting Program")
+line_break(45)
 print(r"""
          |
         -+-
@@ -88,4 +102,5 @@ for note, dur in zip(notes, durations):
     else:
         time.sleep(dur)  # rest or unsupported note
 
-print("Process Completed.")
+line_break(45)
+print("Merry Christmas (and a happy new year!)")
